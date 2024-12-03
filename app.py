@@ -1,4 +1,3 @@
-import streamlit as st
 from geminiAPI import*
 from OCR import*
 

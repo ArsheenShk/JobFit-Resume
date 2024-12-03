@@ -1,8 +1,19 @@
 # geminiAPI.py
 
 import google.generativeai as genai
+from dotenv import load_dotenv
+import streamlit as st
+import os
 
-genai.configure(api_key="AIzaSyCgI-VNaC3OoJ8qZvEL5-3y0APihskSkt8")
+load_dotenv()
+api_key = os.getenv("GOOGLE_API_KEY")
+
+if not api_key:
+    st.error("Google API Key is not set. Please add it to your .env file.")
+else:
+    genai.configure(api_key=api_key)
+
+genai.configure(api_key=api_key)
 
 # Set up the model
 generation_config = {
